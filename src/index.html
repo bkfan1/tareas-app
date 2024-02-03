@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tareas App</title>
+    <!--<script src="https://cdn.tailwindcss.com"></script>-->
+    <!--<link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />-->
+    <link href="./css/output.css" rel="stylesheet" />
+  </head>
+  <body
+    class="flex flex-col justify-center items-center min-h-screen bg-slate-100"
+  >
+    <div
+      class="flex flex-col w-96 h-96 p-4 bg-white gap-4 rounded-sm shadow-lg"
+    >
+      <header class="flex flex-col items-center gap-1">
+        <div class="flex flex-row items-center gap-2">
+          <i class="bi bi-list-task text-2xl text-orange-500"></i>
+          <h1 class="text-2xl text-orange-500 font-semibold">Tareas App</h1>
+        </div>
+        <p>Crea, guarda y elimina tareas</p>
+      </header>
+      <div class="flex flex-row w-full">
+        <input
+          type="text"
+          id="newTodo"
+          placeholder="Agregar nueva tarea"
+          class="flex-1 bg-slate-200 outline-none p-1 rounded-sm border-2 focus:border-b-orange-500 ease-in-out duration-75"
+        />
+        <button
+          onclick="crearTodo()"
+          class="w-10 rounded-sm bg-orange-500 text-white hover:bg-orange-600 ease-in-out duration-100"
+        >
+          <i class="bi bi-plus-lg"></i>
+        </button>
+      </div>
+
+      <hr />
+
+      <ul
+        id="todoList"
+        class="flex flex-col gap-2 overflow-y-scroll no-scrollbar h-full rounded-sm"
+      ></ul>
+    </div>
+
+    <div
+      id="modal"
+      class="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50 hidden"
+    >
+      <div class="flex flex-col gap-4 bg-white p-8 rounded-lg w-96">
+        <header class="flex flex-col">
+          <span class="font-semibold">Tarea:</span>
+          <div class="max-h-48 overflow-y-scroll no-scrollbar">
+            <p class="text-xl" id="modalTitle"></p>
+          </div>
+        </header>
+        <div>
+          <span class="font-semibold">Status:</span>
+          <p id="modalDetails"></p>
+        </div>
+        <div>
+          <span class="font-semibold">Fecha de creación</span>
+          <p id="modalFecha"></p>
+        </div>
+        <button
+          onclick="cerrarModal()"
+          class="mt-4 p-2 bg-blue-500 text-white rounded-sm"
+        >
+          Cerrar
+        </button>
+      </div>
+    </div>
+
+    <script src="./js/index.js"></script>
+  </body>
+</html>
